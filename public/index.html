@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://accounts.google.com/gsi/client" async></script>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,6 +28,22 @@
     <title>React App</title>
   </head>
   <body>
+    <div id="g_id_onload"
+     data-client_id="142853328057-0scqefs2cv8p8kj1en1fgfpo7su2sohs.apps.googleusercontent.com"
+     data-context="signin"
+     data-ux_mode="popup"
+     data-callback="handleGoogleSignIn"
+     data-auto_prompt="false">
+</div>
+
+<div class="g_id_signin"
+     data-type="standard"
+     data-shape="rectangular"
+     data-theme="outline"
+     data-text="signin_with"
+     data-size="large"
+     data-logo_alignment="left">
+</div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -39,5 +56,14 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <script>
+      async function handleGoogleSignIn(response) {
+        const credential = response.credential;
+        // Handle the credential response here, e.g., send it to the server for verification
+        console.log('Credential:', credential);
+        window.location.href = 'https://www.youtube.com';
+      }
+    </script>
   </body>
 </html>
